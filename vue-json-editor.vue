@@ -65,7 +65,7 @@ export default {
           save: "SALVA"
         },
         en: {
-          save: "SAVE"
+          save: "Save"
         },
         zh: {
           save: "保存"
@@ -100,8 +100,14 @@ export default {
       }
     };
 
+    const editor = this.$el.querySelector(".jsoneditor-vue");
+
+    if (editor.children.length > 0) {
+      editor.firstChild.remove();
+    }
+
     this.editor = new JsonEditor(
-      this.$el.querySelector(".jsoneditor-vue"),
+      editor,
       options,
       this.json
     );
