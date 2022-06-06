@@ -174,6 +174,7 @@ export default {
     padding:5px 10px;
     border-radius: 5px;
     cursor: pointer;
+    margin-right: 5px;
   }
   .json-save-btn:focus{
     outline: none;
