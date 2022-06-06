@@ -12,7 +12,7 @@
         class="json-remove-btn"
         type="button"
         @click="onRemove()"
-      >{{ locale[lang.remove ]}}</button>
+      >{{ locale[lang].remove }}</button>
     </div>
   </div>
 </template>
