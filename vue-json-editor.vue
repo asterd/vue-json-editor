@@ -71,7 +71,7 @@ export default {
         },
         en: {
           save: "Save",
-          remove: "Remove",
+          remove: "Delete",
         },
         zh: {
           save: "保存"
