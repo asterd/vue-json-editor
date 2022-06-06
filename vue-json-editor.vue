@@ -8,6 +8,11 @@
         @click="onSave()"
         :disabled="error"
       >{{ locale[lang].save }}</button>
+      <button
+        class="json-remove-btn"
+        type="button"
+        @click="onRemove()"
+      >{{ locale[lang.remove ]}}</button>
     </div>
   </div>
 </template>
@@ -65,7 +70,8 @@ export default {
           save: "SALVA"
         },
         en: {
-          save: "Save"
+          save: "Save",
+          remove: "Remove",
         },
         zh: {
           save: "保存"
@@ -124,6 +130,10 @@ export default {
 
     onSave() {
       this.$emit("json-save", this.json);
+    },
+
+    onRemove() {
+      this.$emit('json-remove', this.json)
     },
 
     async setEditor(value) {
