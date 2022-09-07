@@ -1,13 +1,15 @@
 <template>
   <div class="example-json">
     <div class="example-demo">vue-json-editor demo</div>
-    <vue-json-editor v-model="json" 
-      :show-btns="true" 
-      :mode="'code'" 
+    <vue-json-editor v-model="json"
+      :show-btns="true"
+      outer-style="height: 100%"
+      :mode="'code'"
+                     :skin-colors="{bg: '#0F0' }"
       lang="zh"
-      @json-change="onJsonChange" 
-      @json-save="onJsonSave" 
-      @has-error="onError">   
+      @json-change="onJsonChange"
+      @json-save="onJsonSave"
+      @has-error="onError">
     </vue-json-editor>
     <button type="button" @click="resetJson">reset</button>
   </div>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :style="outerStyle">
     <div class="jsoneditor-vue"></div>
     <div class="jsoneditor-btns" v-if="showBtns!==false">
       <button
@@ -42,6 +42,17 @@ export default {
     lang: {
       type: String,
       default: "en"
+    },
+    outerStyle: {
+      type: String,
+      default: ""
+    },
+    skinColors: {
+      type: Object,
+      default: {
+        bg: '#3883fa',
+        text: '#000'
+      }
     }
   },
   watch: {
@@ -67,7 +78,8 @@ export default {
       expandedModes: ["tree", "view", "form"],
       locale: {
         it: {
-          save: "SALVA"
+          save: "Salva",
+          remove: "Cancella"
         },
         en: {
           save: "Save",
@@ -185,5 +197,21 @@ export default {
   }
   code {
     background-color: #f5f5f5;
+  }
+</style>
+<style>
+  div.jsoneditor {
+    border: 1px solid v-bind('skinColors.bg') !important;
+  }
+  div.jsoneditor-menu {
+    color: v-bind('skinColors.text');
+    background-color: v-bind('skinColors.bg');
+    border-bottom: 1px solid v-bind('skinColors.bg')
+  }
+  div.jsoneditor-menu a.jsoneditor-poweredBy {
+    display: none;
+  }
+  div.jsoneditor-menu > button, div.jsoneditor-menu > div.jsoneditor-modes > button {
+    color: v-bind('skinColors.text');
   }
 </style>
