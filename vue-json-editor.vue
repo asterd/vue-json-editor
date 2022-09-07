@@ -1,5 +1,5 @@
 <template>
-  <div :style="outerStyle">
+  <div v-bind:style="outerDivStyle">
     <div class="jsoneditor-vue"></div>
     <div class="jsoneditor-btns" v-if="showBtns!==false">
       <button
@@ -47,6 +47,7 @@ export default {
       type: String,
       default: ""
     },
+    height: { String, default: "" },
     skinColors: {
       type: Object,
       default: {
@@ -130,6 +131,18 @@ export default {
       this.json
     );
   },
+  computed: {
+    outerDivStyle() {
+      let fs = ''
+      if (this.height !== '') {
+        fs += "height: " + this.height + ";"
+      }
+      if (this.outerStyle !== '') {
+        fs += this.outerStyle
+      }
+      return fs
+    },
+  },
   methods: {
     expandAll() {
       if (
@@ -200,6 +213,9 @@ export default {
   }
 </style>
 <style>
+  .jsoneditor-vue {
+    height: v-bind('height');
+  }
   div.jsoneditor {
     border: 1px solid v-bind('skinColors.bg') !important;
   }

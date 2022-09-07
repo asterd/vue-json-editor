@@ -3,9 +3,9 @@
     <div class="example-demo">vue-json-editor demo</div>
     <vue-json-editor v-model="json"
       :show-btns="true"
-      outer-style="height: 100%"
+      height="100%"
       :mode="'code'"
-                     :skin-colors="{bg: '#0F0' }"
+      :skin-colors="{bg: '#0F0' }"
       lang="zh"
       @json-change="onJsonChange"
       @json-save="onJsonSave"
